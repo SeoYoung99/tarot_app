@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### 🔮 타로 셀프 리딩 앱 설명
 
-## Getting Started
+#### 📝 소개
+이 애플리케이션은 사용자가 직접 질문하고, 타로 카드를 업로드하여 그에 대한 심오한 해석을 얻을 수 있도록 설계된 '타로 셀프 리딩' 웹 앱입니다. 첨단 AI 기술을 활용해 사용자의 질문과 카드의 이미지를 분석하여 개인화된 조언을 제공합니다.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### 📌 주요 기능
+* **질문 입력**: 리딩을 시작하기 전에 현재 고민하고 있는 질문을 자유롭게 입력할 수 있습니다.
+* **카드 업로드**: 직접 손으로 뽑은 타로 카드 이미지를 한 장만 업로드합니다.
+* **AI 기반 해석**: 입력된 질문과 업로드된 카드의 이미지를 AI가 분석하여, 해당 질문 맥락에 맞는 깊이 있는 해석을 제공합니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### 🌟 사용 방법
+1.  **질문하기**: 앱의 첫 화면에서 **"당신의 마음속 질문은 무엇인가요?"**라는 프롬프트에 맞춰 자신의 질문을 입력하세요. 예를 들어, `앞으로의 커리어 방향은 어떻게 될까?`와 같이 구체적으로 작성하면 더 정확한 해석을 얻을 수 있습니다.
+2.  **카드 선택**: 질문을 입력한 후, 직접 뽑은 타로 카드의 이미지를 업로드하세요.
+3.  **결과 확인**: 업로드가 완료되면 AI가 즉시 카드 해석을 시작합니다. 잠시 후, 여러분의 질문과 카드에 대한 AI의 상세한 리딩 결과를 볼 수 있습니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### 🌟 구현 화면
+<img width="770" height="442" alt="스크린샷 2025-09-20 오전 2 49 25" src="https://github.com/user-attachments/assets/0febdab6-550d-4ec3-b1fb-ca81d2c9b21f" />
