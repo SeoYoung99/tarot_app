@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { heicTo, isHeic } from "heic-to"
 
 // Shadcn/ui 컴포넌트를 이 파일 내에 직접 정의합니다.
-const Card = ({ className, children, ...props }: { className?: string; children: React.ReactNode; [key: string]: any; }) => (
+const Card = ({ className, children, ...props }: React.ComponentPropsWithoutRef<'div'>) => (
   <div
     className={`rounded-xl border bg-card text-card-foreground shadow ${className}`}
     {...props}
@@ -14,20 +14,22 @@ const Card = ({ className, children, ...props }: { className?: string; children:
   </div>
 );
 
-const CardContent = ({ className, children, ...props }: { className?: string; children: React.ReactNode; [key: string]: any; }) => (
+const CardContent = ({ className, children, ...props }: React.ComponentPropsWithoutRef<'div'>) => (
   <div className={`p-6 ${className}`} {...props}>
     {children}
   </div>
 );
 
-const Input = ({ className, ...props }: { className?: string; [key: string]: any; }) => (
+const Input = React.forwardRef<HTMLInputElement, React.ComponentPropsWithoutRef<'input'>>(({ className, ...props }, ref) => (
   <input
     className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
+    ref={ref}
     {...props}
   />
-);
+));
+Input.displayName = 'Input';
 
-const Button = ({ className, children, ...props }: { className?: string; children: React.ReactNode; [key: string]: any; }) => (
+const Button = ({ className, children, ...props }: React.ComponentPropsWithoutRef<'button'>) => (
   <button
     className={`inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 ${className}`}
     {...props}
@@ -35,7 +37,6 @@ const Button = ({ className, children, ...props }: { className?: string; childre
     {children}
   </button>
 );
-
 type Reading = string;
 
 export default function TarotApp() {
@@ -116,8 +117,14 @@ export default function TarotApp() {
 
       setReading(result.reading);
 
-    } catch (err: any) {
-      alert(`카드 해석 중 오류가 발생했습니다: ${err.message}`);
+    } catch (err) {
+      let errorMessage = "알 수 없는 오류가 발생했습니다.";
+      if (err instanceof Error) {
+        errorMessage = err.message;
+      } else if (typeof err === 'string') {
+        errorMessage = err;
+      }
+      alert(`카드 해석 중 오류가 발생했습니다: ${errorMessage}`);
       setStep(2);
     } finally {
       setIsLoading(false);
