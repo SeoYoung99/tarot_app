@@ -30,10 +30,10 @@ export async function POST(req: Request) {
     const text = response.text();
 
     return NextResponse.json({ reading: text });
-  } catch (err: any) {
+  } catch (err) {
     console.error(err);
     return NextResponse.json(
-      { error: "Gemini API 요청 실패", detail: err?.message ?? "unknown" },
+      { error: "Gemini API 요청 실패"},
       { status: 500 }
     );
   }
